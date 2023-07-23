@@ -53,7 +53,7 @@ function Funders() {
   ];
 
   return (
-    <Box m="1.5rem 2.5rem">
+    <Box m={isNonMobileScreen ? "1.5rem 2.5rem" : "1.5rem 0"}>
       <Stack
         direction={isNonMobileScreen ? "row" : "column"}
         justifyContent="space-between"
@@ -70,7 +70,7 @@ function Funders() {
           sx={{
             paddingBottom: 1,
             border: "1px solid white",
-            width: "30%",
+            width: isNonMobileScreen ? "30%" : "100%",
             borderRadius: 3,
           }}
         >
@@ -114,7 +114,7 @@ function Funders() {
           sx={{
             paddingBottom: 1,
             border: "1px solid white",
-            width: "30%",
+            width: isNonMobileScreen ? "30%" : "100%",
             borderRadius: 3,
           }}
         >
@@ -158,7 +158,7 @@ function Funders() {
           sx={{
             paddingBottom: 1,
             border: "1px solid white",
-            width: "30%",
+            width: isNonMobileScreen ? "30%" : "100%",
             borderRadius: 3,
           }}
         >

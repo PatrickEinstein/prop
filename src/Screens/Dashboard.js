@@ -14,6 +14,7 @@ import Title from "../Components/Title";
 import DataforStats from "../Components/DataforStats";
 import ProjectData from "../Demodata";
 import { useMediaQuery } from "@mui/material";
+import SimpleBarChart from "../Components/Charts";
 function Dashboard() {
   const isNonMobileScreen = useMediaQuery("(min-width:1050px)");
   const filteredData = ProjectData.filter(({ id }) => id >= 1 && id <= 2);

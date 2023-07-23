@@ -1,5 +1,12 @@
 import React from "react";
-import { Box, IconButton, Stack, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  IconButton,
+  Stack,
+  Typography,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import AllProjects from "../AllProjects";
 import SearchAppBar from "../Components/Searchbar";
@@ -8,53 +15,75 @@ import { DeleteOutline, Grass } from "@mui/icons-material";
 
 function Projects() {
   const theme = useTheme();
-
+  const isNonMobileScreen = useMediaQuery("(min-width:600px)");
   const projects = AllProjects;
   const columns = [
     //the firelds corresponds to the
     //key in the objects of the array
     //the header name is what you assign to show it
     //but it must start with capital letter
-    // {
-    //   field: "_id",
-    //   headerName: "ID",
-    //   flex: 0.5,
-    // },
-    {
-      field: "project",
-      headerName: "Project",
-      flex: 0.5,
-    },
-    {
-      field: "industry",
-      headerName: "Industry",
-      flex: 1,
-    },
-    {
-      field: "volumeforsale",
-      headerName: "Volume For Sale",
-      flex: 1,
-    },
-    {
-      field: "volumefunded",
-      headerName: "Volume Funded",
-      flex: 1,
-    },
-    {
-      field: "funders",
-      headerName: "Funders",
-      flex: 1,
-    },
 
-    {
-      field: "status",
-      headerName: "Status",
-      flex: 1,
-    },
+    ...(isNonMobileScreen
+      ? [
+          {
+            field: "_id",
+            headerName: "ID",
+            flex: 0.5,
+          },
+          {
+            field: "project",
+            headerName: "Project",
+            flex: 0.5,
+          },
+
+          {
+            field: "industry",
+            headerName: "Industry",
+            flex: 1,
+          },
+          {
+            field: "volumeforsale",
+            headerName: "Volume For Sale",
+            flex: 1,
+          },
+          {
+            field: "volumefunded",
+            headerName: "Volume Funded",
+            flex: 1,
+          },
+          {
+            field: "funders",
+            headerName: "Funders",
+            flex: 1,
+          },
+
+          {
+            field: "status",
+            headerName: "Status",
+            flex: 1,
+          },
+        ]
+      : [
+          {
+            field: "industry",
+            headerName: "Industry",
+            flex: 1,
+          },
+          {
+            field: "volumeforsale",
+            headerName: "Volume For Sale",
+            flex: 1,
+          },
+          {
+            field: "volumefunded",
+            headerName: "Volume Funded",
+            flex: 1,
+          },
+        ]),
   ];
 
   return (
-    <Box m="1.5rem 2.5rem">
+    <Box m={isNonMobileScreen ? "1.5rem 2.5rem" : "1.5rem 0"}>
       <Typography fontWeight="bold" color="white" variant="h6" m="1rem 0rem">
         All Projects
       </Typography>

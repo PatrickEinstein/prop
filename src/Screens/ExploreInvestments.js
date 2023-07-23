@@ -85,7 +85,7 @@ function Explore() {
   ];
 
   return (
-    <Box m="1.5rem 2.5rem">
+    <Box m={isNonMobileScreen ? "1.5rem 2.5rem" : "1.5rem 0"}>
       <Typography fontWeight="bold" color="white" variant="h3" m="1rem 0rem">
         Explore Investments
       </Typography>
