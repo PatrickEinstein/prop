@@ -1,10 +1,13 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 import TextBox from "../Components/TextField";
 import UploadWidget from "../Components/DropZone";
 import MyButtons from "../Components/Button";
+import { useState } from "react";
 
 function CreateProjects() {
+  const isNonMobileScreen = useMediaQuery("(min-width:600px)");
+  const [image, setImage] = useState();
   return (
     <Stack justifyContent="left" alignItems="center" width="100%" spacing={3}>
       <Stack>
@@ -26,8 +29,27 @@ function CreateProjects() {
           tempus
         </Typography>
       </Stack>
-      <Stack direction="row" justifyContent="center" width="100%">
-        <Stack width="30%" height="auto" spacing={1}>
+      <Stack
+        direction={isNonMobileScreen ? "row" : "column"}
+        justifyContent="center"
+        width="100%"
+        alignItems={isNonMobileScreen ? null : "center"}
+      >
+        {!isNonMobileScreen && (
+          <Stack
+            width={isNonMobileScreen ? "30%" : "80%"}
+            height="60%"
+            spacing={1}
+            mb={2}
+          >
+            <UploadWidget image={image} setImage={setImage} />
+          </Stack>
+        )}
+        <Stack
+          width={isNonMobileScreen ? "30%" : "80%"}
+          height="auto"
+          spacing={1}
+        >
           <TextBox
             id="outlined-basic3"
             label="Name"
@@ -83,13 +105,19 @@ function CreateProjects() {
           <MyButtons
             color="black"
             text="Create Project"
-            width="80%"
+            width={isNonMobileScreen ? "80%" : "100%"}
             height={200}
           />
         </Stack>
-        <Stack width="30%" height="60%" spacing={1}>
-          <UploadWidget />
-        </Stack>
+        {isNonMobileScreen && (
+          <Stack
+            width={isNonMobileScreen ? "30%" : "80%"}
+            height="60%"
+            spacing={1}
+          >
+            <UploadWidget image={image} setImage={setImage} />
+          </Stack>
+        )}
       </Stack>
     </Stack>
   );

@@ -5,7 +5,7 @@ export const auth = createSlice({
   initialState: {
     signedInUser: [],
     loggedInUser: [],
-    typeofProfilePage: "",
+    typeofProfilePage: "Dashboard",
     openModal: false,
     openModal2: false,
     selectedCollection: {},
