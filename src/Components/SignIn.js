@@ -129,7 +129,7 @@ const SignIn = () => {
           color="black"
           width={isNonMobileScreen ? "80%" : "100%"}
           height={60}
-          onClick={onSignIn}
+          onClick={() => navigate("/dashboard")}
         />
         <Stack
           direction="row"

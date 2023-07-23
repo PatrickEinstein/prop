@@ -142,7 +142,7 @@ const SignUp = () => {
           color="black"
           width="80%"
           height={80}
-          onClick={onSignUp}
+          onClick={()=>navigate("/signin")}
         />
 
         <Typography
