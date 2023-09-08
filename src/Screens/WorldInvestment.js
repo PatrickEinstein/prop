@@ -9,7 +9,6 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
 import { faker } from "@faker-js/faker";
 import CustomTabPanel from "../Components/Tabs";
 import MainCarousel from "../Components/Carousel";
@@ -20,6 +19,7 @@ import {
   Grass,
 } from "@mui/icons-material";
 import MyButtons from "../Components/Button";
+import { DataGrid } from "@mui/x-data-grid";
 
 function World() {
   const theme = useTheme();
@@ -84,19 +84,19 @@ function World() {
   ];
 
   return (
-    <Stack width="100%" overflow="auto" height={800}>
+    <Stack width="98vw" overflow="auto"  height="100vh">
       {/* NAVBAR */}
       <Stack
         justifyContent="space-between"
         direction="row"
-        m={isNonMobileScreen ? "1rem 0.5rem" : "0 0"}
-        width="100%"
+        m={isNonMobileScreen ? "1rem 0.5rem" : "1rem 1.5rem"}
+        width="90vw"
       >
         <img
           src={Logo2}
           alt="Logo"
           style={{
-            width: 100,
+            width: 90,
             height: 50,
           }}
         />

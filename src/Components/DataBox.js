@@ -1,28 +1,28 @@
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
 
 function DataBox({ title, body }) {
   return (
     <Box
       sx={{
-        width: "100%",
         height: 300,
+        width: "100%",
         border: "1px solid white",
         borderRadius: 3,
-        overflow: "hidden",
-        paddingBottom: 3,
+        overflow: "auto",
+        color: "white",
       }}
     >
-      <Stack
-        spacing={2}
+      <Typography
         sx={{
-          width: "100%",
-          height: "100%",
+          fontWeight: "bold",
+          fontSize: 20,
+          p:2
         }}
       >
-        {title}
-        {body}
-      </Stack>
+       {title}
+      </Typography>
+      <Stack height={"90%"} >{body}</Stack>
     </Box>
   );
 }

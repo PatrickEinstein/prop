@@ -1,5 +1,3 @@
-import { Person2TwoTone } from "@mui/icons-material";
-import { Stack, Typography } from "@mui/material";
 
 const AllFUnders = [
   {

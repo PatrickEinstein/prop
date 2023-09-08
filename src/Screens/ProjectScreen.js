@@ -7,11 +7,11 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
 import AllProjects from "../AllProjects";
 import SearchAppBar from "../Components/Searchbar";
 import Picker from "../Components/Picker";
 import { DeleteOutline, Grass } from "@mui/icons-material";
+import { DataGrid } from "@mui/x-data-grid";
 
 function Projects() {
   const theme = useTheme();

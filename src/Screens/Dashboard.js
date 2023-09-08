@@ -2,19 +2,14 @@ import React from "react";
 import { Box, IconButton, Stack, TextField, Typography } from "@mui/material";
 import {
   Grass,
+  GrassOutlined,
   Person2Outlined,
-  Person2Rounded,
-  PowerOffOutlined,
-  VolumeMute,
 } from "@mui/icons-material";
 import DataBox from "../Components/DataBox";
-import DataTable from "../Components/Projects";
 import ProjectsTable from "../Components/Projects";
-import Title from "../Components/Title";
-import DataforStats from "../Components/DataforStats";
 import ProjectData from "../Demodata";
 import { useMediaQuery } from "@mui/material";
-import SimpleBarChart from "../Components/Charts";
+import BarChartsGraph from "../Charts/BarChartsGraph";
 function Dashboard() {
   const isNonMobileScreen = useMediaQuery("(min-width:1050px)");
   const filteredData = ProjectData.filter(({ id }) => id >= 1 && id <= 2);
@@ -23,7 +18,7 @@ function Dashboard() {
       spacing={5}
       sx={{
         width: "100%",
-        height: 700,
+        // height: 800,
         marginTop: isNonMobileScreen ? "3%" : "10%",
       }}
     >
@@ -94,7 +89,7 @@ function Dashboard() {
             </Stack>
           </Box>
           {/* DATABOX LEFT */}
-          <DataBox />
+          <DataBox body={<BarChartsGraph/>} title="Funding Report" />
         </Stack>
 
         {/* COLUMN RIGHT */}
@@ -156,7 +151,7 @@ function Dashboard() {
             </Stack>
           </Box>
           {/* DATABOX RIGHT */}
-          <DataBox body={<ProjectsTable />} title={<Title />} />
+          <DataBox body={<ProjectsTable />} title="Top Project" />
         </Stack>
       </Stack>
       <Stack
@@ -184,120 +179,62 @@ function Dashboard() {
           See all
         </Typography>
       </Stack>
-      <Stack direction="row" justifyContent="space-between">
-        <Typography
-          sx={{
-            color: "white",
-            fontWeight: "bold",
-            fontSize: isNonMobileScreen ? 20 : 8,
-          }}
-        >
-          Project
-        </Typography>
 
-        <Typography
-          sx={{
-            color: "white",
-            fontWeight: "bold",
-            marginLeft: "10%",
-            fontSize: isNonMobileScreen ? 20 : 8,
-          }}
+      <th>
+        <Stack
+          color="white"
+          direction="row"
+          justifyContent="space-between"
+          // marginBottom={3}
+          whiteSpace="nowrap"
+          fontSize={isNonMobileScreen ? 20 : 10}
+          overflow="auto"
         >
-          Funder
-        </Typography>
-        <Typography
-          sx={{
-            color: "white",
-            fontWeight: "bold",
-            fontSize: isNonMobileScreen ? 20 : 8,
-          }}
-        >
-          TransactionType
-        </Typography>
-        <Typography
-          sx={{
-            color: "white",
-            fontWeight: "bold",
-            fontSize: isNonMobileScreen ? 20 : 8,
-          }}
-        >
-          Volume
-        </Typography>
-        <Typography
-          sx={{
-            color: "white",
-            fontWeight: "bold",
-            fontSize: isNonMobileScreen ? 20 : 8,
-          }}
-        >
-          Time
-        </Typography>
-      </Stack>
+          <td>Project</td>
+          <td>Funder</td>
+          <td>TransactionType</td>
+          <td>Volume</td>
+          <td>Time</td>
+        </Stack>
+      </th>
       {filteredData.map(
         ({ Project, Funder, TransactionType, Volume, Time }) => (
-          <Stack direction="row" justifyContent="space-between">
-            <Stack direction="row" spacing={2}>
-              <IconButton
-                sx={{
-                  backgroundColor: "powderblue",
-                }}
+          <tr>
+            <Stack
+              direction="row"
+              color="white"
+              justifyContent="space-between"
+              fontSize={isNonMobileScreen ? 20 : 10}
+              overflow="auto"
+            >
+              <td>
+                <Stack direction="row" spacing={3}>
+                  <IconButton>
+                    <GrassOutlined
+                      sx={{
+                        backgroundColor: "white",
+                        borderRadius: "50%",
+                        width: 30,
+                        height: 30,
+                      }}
+                    />
+                  </IconButton>
+                </Stack>
+              </td>
+              <Stack
+                direction="row"
+                mt={2}
+                width={"100%"}
+                justifyContent="space-between"
               >
-                <Person2Outlined
-                  sx={{
-                    color: "white",
-                    fontSize: isNonMobileScreen ? 20 : 8,
-                  }}
-                />
-              </IconButton>
-              <Typography
-                sx={{
-                  color: "white",
-                  // textAlign: "right",
-                  marginTop: 2,
-                  fontSize: isNonMobileScreen ? 20 : 8,
-                }}
-              >
-                {Project}
-              </Typography>
+                <td>{Project}</td>
+                <td>{Funder}</td>
+                <td>{TransactionType}</td>
+                <td>{Volume}</td>
+                <td>{Time}</td>
+              </Stack>
             </Stack>
-            <Typography
-              sx={{
-                color: "white",
-                fontWeight: "bold",
-
-                fontSize: isNonMobileScreen ? 20 : 8,
-              }}
-            >
-              {Funder}
-            </Typography>
-            <Typography
-              sx={{
-                color: "white",
-                fontWeight: "bold",
-                fontSize: isNonMobileScreen ? 20 : 8,
-              }}
-            >
-              {TransactionType}
-            </Typography>
-            <Typography
-              sx={{
-                color: "white",
-                fontWeight: "bold",
-                fontSize: isNonMobileScreen ? 20 : 8,
-              }}
-            >
-              {Volume}
-            </Typography>
-            <Typography
-              sx={{
-                color: "white",
-                fontWeight: "bold",
-                fontSize: isNonMobileScreen ? 20 : 8,
-              }}
-            >
-              {Time}
-            </Typography>
-          </Stack>
+          </tr>
         )
       )}
     </Stack>

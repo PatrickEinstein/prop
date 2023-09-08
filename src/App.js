@@ -7,6 +7,9 @@ import Drawer2 from "./Components/Drawer";
 import ProjectsTable from "./Components/Projects";
 import Profilepage from "./Screens/Profilepage";
 import World from "./Screens/WorldInvestment";
+import PersistentDrawerLeft from "./Components/PersistDrawer";
+import Projectpage from "./Screens/ProjectPage";
+import ConnectWallet from "./Screens/ConnectWallet";
 
 function App() {
   return (
@@ -15,10 +18,12 @@ function App() {
         <Route>
           <Route path="/" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/dashboard" element={<Drawer2 />} />
+          <Route path="/dashboard" element={<PersistentDrawerLeft />} />
           <Route path="/test" element={<ProjectsTable />} />
           <Route path="/profile" element={<Profilepage />} />
           <Route path="/world" element={<World />} />
+          <Route path="/project" element={<Projectpage />} />
+          <Route path="/pay" element={<ConnectWallet />} />
         </Route>
       </Routes>
     </BrowserRouter>

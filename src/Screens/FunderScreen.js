@@ -7,9 +7,9 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
 import AllFUnders from "../AllFunders";
 import { Person2Outlined } from "@mui/icons-material";
+import { DataGrid } from "@mui/x-data-grid";
 
 function Funders() {
   const theme = useTheme();
@@ -57,6 +57,7 @@ function Funders() {
       <Stack
         direction={isNonMobileScreen ? "row" : "column"}
         justifyContent="space-between"
+        spacing={2}
         sx={{
           paddingTop: 1,
           paddingBottom: 1,
@@ -66,9 +67,8 @@ function Funders() {
         <Stack
           direction="row"
           spacing={2}
-          p="1rem 1rem "
           sx={{
-            paddingBottom: 1,
+            p: "1.5rem 1rem",
             border: "1px solid white",
             width: isNonMobileScreen ? "30%" : "100%",
             borderRadius: 3,
@@ -110,9 +110,9 @@ function Funders() {
         <Stack
           direction="row"
           spacing={2}
-          p="1rem 1rem "
           sx={{
-            paddingBottom: 1,
+            p: "1.5rem 1rem",
+
             border: "1px solid white",
             width: isNonMobileScreen ? "30%" : "100%",
             borderRadius: 3,
@@ -154,9 +154,8 @@ function Funders() {
         <Stack
           direction="row"
           spacing={2}
-          p="1rem 1rem "
           sx={{
-            paddingBottom: 1,
+            p: "1.5rem 1rem",
             border: "1px solid white",
             width: isNonMobileScreen ? "30%" : "100%",
             borderRadius: 3,
@@ -199,58 +198,46 @@ function Funders() {
       <Typography fontWeight="bold" color="white">
         All Funders
       </Typography>
-      <Box
-        // mt="40px"
-        height="90vh"
-        sx={{
-          "& .MuiDataGrid-root": {
-            border: "none",
-          },
 
-          "& .MuiDataGrid-cell": {
-            borderBottom: "none",
-          },
-          "$ . MuiDataGrid-columnHeaders": {
-            backgroundColor: theme.palette.background.alt,
-            color: theme.palette.secondary,
-            borderBottom: "none",
-          },
-          "$ . MuiDataGrid-virtualScroller": {
-            backgroundColor: theme.palette.primary.light,
-          },
-          "$ . MuiDataGrid-footerContainer": {
-            backgroundColor: theme.palette.background.alt,
-            color: theme.palette.secondary,
-            borderTop: "none",
-          },
-          "$ . MuiDataGrid-toolbarContainer .MuiButton-text": {
-            color: `${theme.palette.secondary} !important`,
-          },
-        }}
-      >
-        <DataGrid
-          sx={{
-            "&::-webkit-scrollbar": {
-              width: "0.1rem",
-            },
-            "&::-webkit-scrollbar-track": {
-              background: "transparent",
-            },
-            "&::-webkit-scrollbar-thumb": {
-              background: "transparent",
-            },
-            "&::-webkit-scrollbar-thumb:hover": {
-              background: "transparent",
-            },
-            color: "white",
-          }}
-          //   loading={isLoading || !data}
-          getRowId={(row) => row._id}
-          rows={projects}
-          columns={columns}
-        />
+        <table>
+          <th>
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              width="80vw"
+              color="white"
+              fontSize={isNonMobileScreen ? 20 : 10}
+            >
+              <td>ID</td>
+              <td>Wallet Address</td>
+              <Stack>
+              <td>Country</td>
+              </Stack>
+            
+              <td>Project FUnded</td>
+            </Stack>
+          </th>
+          <tr>
+            {projects.map(({ _id, wallet, country, projectfounded }) => (
+              <Stack
+                direction="row"
+                justifyContent="space-between"
+                width="70vw"
+                color="white"
+              >
+                <td>{_id}</td>
+                <Stack>
+                  <td>{wallet.substring(8)}...</td>
+                </Stack>
+
+                <td>{country}</td>
+                <td>{projectfounded}</td>
+              </Stack>
+            ))}
+          </tr>
+        </table>
       </Box>
-    </Box>
+    
   );
 }
 

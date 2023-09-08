@@ -10,9 +10,9 @@ function Profilepage() {
   const isNonMobileScreen = useMediaQuery("(min-width:600px)");
   return (
     <Stack
-      width="100%"
+      width="100vw"
       overflow="auto"
-      height={isNonMobileScreen ? "auto" : 900}
+      height="100vh"
       m="0.5rem 0 1rem 0"
     >
       {/* NAVBAR */}
@@ -20,7 +20,7 @@ function Profilepage() {
         justifyContent="space-between"
         direction="row"
         m={isNonMobileScreen ? "1rem 0.5rem" : "0 0"}
-        width="100%"
+        width="95vw"
       >
         {" "}
         <img
@@ -28,7 +28,7 @@ function Profilepage() {
           alt="Logo"
           style={{
             width: 100,
-            height: 50,
+            height: 80,
           }}
         />
         <Stack
@@ -46,7 +46,7 @@ function Profilepage() {
       {/* BACKDROP */}
       <Box
         height={isNonMobileScreen ? "30%" : "auto"}
-        width="100%"
+        width="100vw"
         mb={isNonMobileScreen ? "7rem" : "10rem"}
         sx={{
           position: "relative",

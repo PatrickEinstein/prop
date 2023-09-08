@@ -1,5 +1,3 @@
-import { Grass, Person2TwoTone } from "@mui/icons-material";
-import { IconButton, Stack, Typography } from "@mui/material";
 
 const AllInvestments = [
   {
