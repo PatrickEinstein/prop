@@ -84,13 +84,13 @@ function World() {
   ];
 
   return (
-    <Stack width="98vw" overflow="auto"  height="100vh">
+    <Stack width="100vw"   height="100vh">
       {/* NAVBAR */}
       <Stack
         justifyContent="space-between"
         direction="row"
         m={isNonMobileScreen ? "1rem 0.5rem" : "1rem 1.5rem"}
-        width="90vw"
+        width="100vw"
       >
         <img
           src={Logo2}

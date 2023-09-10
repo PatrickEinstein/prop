@@ -14,8 +14,9 @@ const MainCarousel = () => {
   const theme = useTheme();
   return (
     <Box
-      width={isNonMobileScreen ? "95%" : "100%"}
+      width={isNonMobileScreen ? "100vw" : "100vw"}
       marginBottom={isNonMobileScreen ? 5 : 10}
+    
     >
       <div id="testimonial">
         <Carousel

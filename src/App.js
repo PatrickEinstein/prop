@@ -10,6 +10,7 @@ import World from "./Screens/WorldInvestment";
 import PersistentDrawerLeft from "./Components/PersistDrawer";
 import Projectpage from "./Screens/ProjectPage";
 import ConnectWallet from "./Screens/ConnectWallet";
+import FundCrypto from "./Screens/fundcrypto";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/world" element={<World />} />
           <Route path="/project" element={<Projectpage />} />
           <Route path="/pay" element={<ConnectWallet />} />
+          <Route path="/fund" element={<FundCrypto />} />
         </Route>
       </Routes>
     </BrowserRouter>
